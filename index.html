@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dominant Color Demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap-4.0.0.min.css">
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Dominant Color Demo</h1>
+            <div class="row">
+                <div class="col-md-8">
+                    Preview:
+                    <br>
+                    <div id="preview-container">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    Colors:
+                    <br>
+                    <div id="status">
+                    </div>
+                </div>
+            </div>
+            <div>
+                Use example image:
+                <br>
+                <img class="example-image" src="https://raw.githubusercontent.com/marekm4/color-extractor/master/example/Fotolia_45549559_320_480.jpg">
+                <img class="example-image" src="https://c402277.ssl.cf1.rackcdn.com/photos/479/images/story_full_width/giant-panda-shutterstock_86500690.jpg">
+                <img class="example-image" src="https://images.theconversation.com/files/242298/original/file-20181025-71032-1hmrk2l.jpg?ixlib=rb-1.1.0&rect=0%2C584%2C5007%2C2503&q=45&auto=format&w=1356&h=668&fit=crop">
+                <img class="example-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg/1280px-Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg">
+                <img class="example-image" src="https://2.bp.blogspot.com/-fK3T27K_qYs/UI3gA89r6EI/AAAAAAAAGs4/Paoir9nOsy8/s1600/red-fox2.jpg">
+            </div>
+            <div>
+                Enter image URL:
+                <form id="url-form" action="url.php" method="post">
+                    <input name="url">
+                </form>
+            </div>
+            <div>
+                Upload own image:
+                <form id="upload-form" action="url.php" method="post" enctype="multipart/form-data">
+                    <input name="file" type="file">
+                </form>
+            </div>
+            <div>
+                <a href="https://github.com/marekm4/dominant_color">GitHub</a>
+            </div>
+        </div>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/load-image-2.18.0.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/load-first-example.js"></script>
+    </body>
+</html>

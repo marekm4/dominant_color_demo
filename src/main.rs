@@ -3,12 +3,13 @@ use warp::Filter;
 
 #[tokio::main]
 async fn main() {
-    // GET /hello/warp => 200 OK with body "Hello, warp!"
-    let hello = warp::path!("hello" / String)
-        .map(|name| format!("Hello, {}!", name));
+    let index = warp::get()
+        .and(warp::path::end())
+        .and(warp::fs::file("./index.html"));
+    let css = warp::path("css").and(warp::fs::dir("./css/"));
+    let js = warp::path("js").and(warp::fs::dir("./js/"));
+    let routes = index.or(css).or(js);
 
     let port = env::var("PORT").unwrap_or("8080".to_string()).parse::<u16>().unwrap();
-    warp::serve(hello)
-        .run(([127, 0, 0, 1], port))
-        .await;
+    warp::serve(routes).run(([0, 0, 0, 0], port)).await;
 }

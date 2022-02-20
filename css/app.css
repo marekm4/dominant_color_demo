@@ -1,0 +1,13 @@
+#preview-container {
+    text-align: center;
+    height: 320px;
+}
+
+.example-image {
+    height: 100px;
+    cursor: pointer;
+}
+
+#status .color {
+    height: 40px;
+}
