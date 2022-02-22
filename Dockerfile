@@ -1,4 +1,4 @@
-FROM rust:1.58-slim-bullseye as builder
+FROM rust:1.58-bullseye as builder
 COPY . .
 RUN cargo build --release
 

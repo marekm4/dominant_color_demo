@@ -51,34 +51,10 @@ $("#url-form input").bind('input', function (event) {
     var form = $(event.target).parent();
     var url = form.find('input').val();
     changeStatusToAnalyzing(url);
-    $.post('url.php', {url: url}).done(function (data) {
+    $.post('url', {url: url}).done(function (data) {
         changeStatusToResult(data);
     }).fail(function () {
         changeStatusToError();
     });
     event.preventDefault();
-});
-
-$("#upload-form input").change(function (event) {
-    event.preventDefault();
-    var form = $(event.target).parent();
-    var fileInput = form.find('input');
-
-    var formData = new FormData();
-    formData.append(fileInput.attr('name'), fileInput[0].files[0]);
-    var request = new XMLHttpRequest();
-
-    request.onreadystatechange = function () {
-        if (request.readyState == 4) {
-            if (request.status == 200) {
-                changeStatusToResult(JSON.parse(request.responseText));
-            } else {
-                changeStatusToError();
-            }
-        }
-    };
-
-    changeStatusToAnalyzing(event.target.files[0]);
-    request.open("POST", form.attr('action'));
-    request.send(formData);
 });
