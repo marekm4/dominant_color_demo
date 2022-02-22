@@ -40,7 +40,7 @@ $('.example-image').click(function (event) {
     var image = $(event.target);
     var url = image.attr('src');
     changeStatusToAnalyzing(url);
-    $.post('url.php', {url: url}).done(function (data) {
+    $.post('url', {url: url}).done(function (data) {
         changeStatusToResult(data);
     }).fail(function () {
         changeStatusToError();

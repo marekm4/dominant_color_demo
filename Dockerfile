@@ -5,7 +5,5 @@ RUN cargo build --release
 FROM debian:bullseye-slim
 ENV PORT=8080
 COPY --from=builder /target/release/dominant_color_demo dominant_color_demo
-COPY css css
-COPY js js
-COPY index.html index.html
+COPY files files
 CMD ["/dominant_color_demo"]
